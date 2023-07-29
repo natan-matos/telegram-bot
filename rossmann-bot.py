@@ -3,6 +3,7 @@ import json
 import requests
 import os
 
+
 from flask import Flask, request, Response
 
 #constans
@@ -40,6 +41,7 @@ def load_data(store_id):
 
     # merge test dataset + store
     df_test = pd.merge( df10, df_store_raw, how='left', on='Store' )
+    df_test['Store'] = df_test['Store'].astype(int)
     # choose store for prediction
     df_test = df_test[df_test['Store']==store_id]
 
@@ -102,8 +104,7 @@ def index():
                 d1 = predict( data )
 
                 # calculation
-                d2 = d1
-                #d1[['store', 'prediction']].groupby('store').sum().reset_index()
+                d2 = d1[['store', 'prediction']].groupby('store').sum().reset_index()
 
                 # send message
                 msg = 'Store Number {} will sell ${:,.2f} in the next 6 weeks'.format(
