@@ -102,7 +102,7 @@ def index():
                 d1 = predict( data )
 
                 # calculation
-                d2 = d1.copy() 
+                d2 = d1
                 #d1[['store', 'prediction']].groupby('store').sum().reset_index()
 
                 # send message
