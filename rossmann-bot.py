@@ -15,7 +15,7 @@ token = '6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A'
 #'https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/getUpdates'
 
 # webhook
-#https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/setWebhook?url=https://5c09b824f37df7.lhr.life
+#https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/setWebhook?url=https://telegram-bot-6jqb.onrender.com
 
 
 # send message
@@ -102,7 +102,8 @@ def index():
                 d1 = predict( data )
 
                 # calculation
-                d2 = d1[['store', 'prediction']].groupby('store').sum().reset_index()
+                d2 = d1.copy() 
+                #d1[['store', 'prediction']].groupby('store').sum().reset_index()
 
                 # send message
                 msg = 'Store Number {} will sell ${:,.2f} in the next 6 weeks'.format(
