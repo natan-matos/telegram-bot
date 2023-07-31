@@ -25,7 +25,7 @@ def load_data(store_id):
     # loading test data
     df10 = pd.read_csv('test.csv')
     df_store_raw  = pd.read_csv('store.csv')
-    df10 = df10.drop('Id', axis=1)
+    
 
 
     # merge test dataset + store
