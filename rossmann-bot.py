@@ -7,26 +7,29 @@ import os
 from flask import Flask, request, Response
 
 #constans
-token = '6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A'
+token = '6330025305:AAGVrpNJ5P6UH6KZ6hGtYjHqDUNxpMW8mgg'
+bot_id = 6330025305
 
 # Info about the Bot
-#'https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/getMe'
+#https://api.telegram.org/bot6330025305:AAGVrpNJ5P6UH6KZ6hGtYjHqDUNxpMW8mgg/getMe
+
 
 # get updates
-#'https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/getUpdates'
+#https://api.telegram.org/bot6330025305:AAGVrpNJ5P6UH6KZ6hGtYjHqDUNxpMW8mgg/getUpdates
 
 # webhook
-#https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/setWebhook?url=https://telegram-bot-6jqb.onrender.com
-
+#https://api.telegram.org/bot6330025305:AAGVrpNJ5P6UH6KZ6hGtYjHqDUNxpMW8mgg/setWebhook?url=https://telegram-bot-6jqb.onrender.com 
+#https://832e35658282ef.lhr.life 
+# https://telegram-bot-6jqb.onrender.com                        
 
 # send message
-#'https://api.telegram.org/bot6575048807:AAGAEu-jBn4rrtwPztj8SwW2nPSdG7wMy7A/sendMessage?chat_id=6575048807&text=hinatan!'
+#https://api.telegram.org/bot6330025305:AAGVrpNJ5P6UH6KZ6hGtYjHqDUNxpMW8mgg/sendMessage?chat_id=627469904&text=natan, how are you
 
 def send_message(chat_id, text):
     url = 'https://api.telegram.org/bot{}/'.format( token )
     url = url + 'sendMessage?chat_id={}'.format( chat_id )
 
-    r = request.post(url, json={'text': text})
+    r = requests.post(url, json={'text': text})
     print('Satus Code{}'.format(r.status_code))
 
     return None
