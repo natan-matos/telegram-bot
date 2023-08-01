@@ -111,7 +111,7 @@ def index():
                     d2 = df_response[['store', 'prediction']].groupby('store').sum().reset_index()
 
                     # send message
-                    msg = f'Store Number {d2["store"].values[0]} will sell ${d2["prediction"].values[0]:.2f} in the next 6 weeks'
+                    msg = f'Store Number {d2["store"].values[0]} will sell ${d2["prediction"].values[0]:,.2f} in the next 6 weeks'
                     send_message(chat_id, msg)
                     return Response('Ok', status=200)
 
