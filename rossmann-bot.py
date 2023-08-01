@@ -15,6 +15,7 @@ def send_message(chat_id, text):
     url = url + 'sendMessage?chat_id={}'.format( chat_id )
 
     r = requests.post(url, json={'text': text})
+    print('def send_message ok')
     print('Satus Code{}'.format(r.status_code))
 
     return None
@@ -46,6 +47,7 @@ def load_data(store_id):
     else:
         data = 'error'
 
+    print('def load_data ok')
     return data
 
 def predict(data):
@@ -55,6 +57,7 @@ def predict(data):
     data = data
     r = requests.post( url, data=data, headers=header )
     print( 'Status Code {}'.format( r.status_code ) )
+    print('def predict ok')
     
     return data
 
@@ -72,6 +75,7 @@ def parse_message(message):
         send_message(chat_id, 'Store ID is Wrong')
         store_id = 'error'
 
+    print('def parse_message ok')
     return chat_id, store_id
 
 # API initialize
@@ -117,7 +121,7 @@ def index():
             return Response('OK', status=200)
     else:
         return '</h1> Rossmann Telegram Bot </h1>'
-
+    print('def index ok')
 
 
 if __name__ == '__main__':
